@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://btr1omphka644"]
 
-[ext_resource type="Script" path="res://Resources/Scripts/dice_handler.gd" id="1_l7lho"]
-[ext_resource type="Script" path="res://Resources/Scripts/board_handler.gd" id="2_depna"]
+[ext_resource type="Script" uid="uid://gtjgw5bg6m8u" path="res://Resources/Scripts/dice_handler.gd" id="1_l7lho"]
+[ext_resource type="Script" uid="uid://bcgspwsw85dsj" path="res://Resources/Scripts/board_handler.gd" id="2_depna"]
 
 [node name="Game" type="Node2D"]
 
