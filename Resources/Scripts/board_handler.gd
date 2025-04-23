@@ -4,12 +4,15 @@ extends Node2D
 @export var board_x : int = 5
 @export var board_y : int = 5
 
-const RATIOS = {"Snakes": 7, "Ladders": 7, "Shops": 50, "Obstacles": 16, "Traps": 5}
-const VECTORTYPES = ["Snakes", "Ladders"]
+const RATIOS = {"Snakes": 7, "Ladders": 7, "Shops": 50, "Obstacles": 16, "Traps": 5} # 
+const VECTORTYPES = ["Snakes", "Ladders"] # List of Vector Tile types
 
 var board : Array = []
-var reserved_indices : Array = []
 var tiles_available : Dictionary = {}
+
+## Predefining a 2D array | See 3.3 -> Algorithm Design
+var inputSpace = []
+var outputSpace = []
 
 ## Tile Class
 class Tile:
@@ -43,8 +46,8 @@ func set_available_tiletypes() -> Dictionary: # Assign the number of possible ti
 		counts[key] = (board.size() / RATIOS[key])  
 	return counts
 
-func _ready() -> void:
-	board.resize(board_x * board_y)
+func _ready() -> void: # Called when the scene is initialised.
+	board.resize(board_x * board_y) # Sets the board to the correct length as an empty array.
 	tiles_available = set_available_tiletypes()
 	generate_board()
 	print(board)
@@ -66,3 +69,5 @@ func create_vector_tile(tile: String, index: int):
 	match tile:
 		"Snakes":
 			randi_range(1,index - 1)
+		"Ladders":
+			randi_range(index + 1, board.size() - 2)
