@@ -8,28 +8,13 @@ const RATIOS = {"Snakes": 7, "Ladders": 7, "Shops": 50, "Obstacles": 16, "Traps"
 const VECTORTYPES = ["Snakes", "Ladders"] # List of Vector Tile types
 
 var board : Array = []
-var tiles_available : Dictionary = {}
+var tiles_to_set : Dictionary = {}
 
 ## Predefining a 2D array | See 3.3 -> Algorithm Design
 var inputSpace = []
 var outputSpace = []
 
-## Tile Class
-class Tile:
-	var type : String
-	var index : int
-	var x : int
-	var y : int
-	
-	func _init(type: String, index: int, x:int, y:int):
-		self.type = type
-		self.index = index
-		self.x = x
-		self.y = y
-## End Tile Class
-
-
-## Important Array/Dictionary Functions
+## Important Array/Dictionary Functions 
 func pick_random(dictionary: Dictionary) -> Variant: # Picks 
 	var random_key = dictionary.keys().pick_random()
 	return dictionary[random_key]
@@ -48,7 +33,7 @@ func set_available_tiletypes() -> Dictionary: # Assign the number of possible ti
 
 func _ready() -> void: # Called when the scene is initialised.
 	board.resize(board_x * board_y) # Sets the board to the correct length as an empty array.
-	tiles_available = set_available_tiletypes()
+	tiles_to_set = set_available_tiletypes()
 	generate_board()
 	print(board)
 
@@ -59,15 +44,18 @@ func generate_board():
 	
 	if required_iterations > 0:
 		selected_index = randi_range(0, board.size() - 1)
-		selected_tile = pick_random(tiles_available)
+		selected_tile = pick_random(tiles_to_set)
 		if selected_tile in VECTORTYPES:
 			create_vector_tile(selected_tile, selected_index)
+			selected_tile -= 1
 		else:
+			board[selected_index] = selected_tile
 			pass
 
 func create_vector_tile(tile: String, index: int):
 	match tile:
 		"Snakes":
-			randi_range(1,index - 1)
+			board[index] = "SnakeStart"
+			board[randi_range(1, index - 1)] = "SnakeEnd"
 		"Ladders":
-			randi_range(index + 1, board.size() - 2)
+			randi_range(index + 1, board.size() - 2) 
