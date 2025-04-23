@@ -9,4 +9,4 @@ Snakes and Ladders is a very deterministic board game. SLC&P seeks to solve this
  	* Special moves, useful once per board.
 * Biomes that affect the utility of your chosen archetypes.
 * Traps and Obstacles that block the board, reshuffle it, or otherwise cause a nuisance to you. 
-* Duelling
+* Duelling/Battle Mechanics
