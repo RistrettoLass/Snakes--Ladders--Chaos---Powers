@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvwosthj7e004"]
+
+[ext_resource type="Theme" uid="uid://dkay5gbrpfsmc" path="res://Resources/Themes/Small Font.tres" id="1_peroa"]
+[ext_resource type="Script" uid="uid://bg3vafd0syci3" path="res://Resources/Scripts/Debug Tools/fps_counter.gd" id="2_p2xxe"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FPS Counter" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 48.0
+theme = ExtResource("1_peroa")
+bbcode_enabled = true
+text = "FPS"
+script = ExtResource("2_p2xxe")

@@ -1,0 +1,219 @@
+[gd_scene load_steps=4 format=3 uid="uid://by66lmk4ywsx4"]
+
+[ext_resource type="Script" uid="uid://c40jnind7udik" path="res://Resources/Scripts/options_menu.gd" id="1_tdyw4"]
+[ext_resource type="Theme" uid="uid://csw4hor13q07" path="res://Resources/Themes/Big Font.tres" id="2_m2whp"]
+[ext_resource type="Theme" uid="uid://dkay5gbrpfsmc" path="res://Resources/Themes/Small Font.tres" id="3_x063j"]
+
+[node name="Options Menu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tdyw4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0.0941176, 0.0980392, 0.0392157, 1)
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 104.0
+offset_right = 368.0
+offset_bottom = 128.0
+theme = ExtResource("2_m2whp")
+text = "Settings"
+
+[node name="Main Settings" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 264.0
+offset_top = 136.0
+offset_right = 376.0
+offset_bottom = 192.0
+
+[node name="VideoSettings" type="Button" parent="Main Settings"]
+layout_mode = 2
+theme = ExtResource("3_x063j")
+text = "Video
+"
+
+[node name="AudioSettings" type="Button" parent="Main Settings"]
+layout_mode = 2
+theme = ExtResource("3_x063j")
+text = "Audio"
+
+[node name="Keybinds" type="Button" parent="Main Settings"]
+layout_mode = 2
+theme = ExtResource("3_x063j")
+text = "Keybinds"
+
+[node name="Button" type="Button" parent="Main Settings"]
+layout_mode = 2
+theme = ExtResource("3_x063j")
+text = "Back"
+
+[node name="Video Settings" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="vSettings" type="HBoxContainer" parent="Video Settings"]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 136.0
+offset_right = 424.0
+offset_bottom = 216.0
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Text" type="VBoxContainer" parent="Video Settings/vSettings"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="fs" type="RichTextLabel" parent="Video Settings/vSettings/Text"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_x063j")
+text = "Fullscreen"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="fps" type="RichTextLabel" parent="Video Settings/vSettings/Text"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_x063j")
+bbcode_enabled = true
+text = "FPS [color=yellow](Debug Tool)[/color]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="vs" type="RichTextLabel" parent="Video Settings/vSettings/Text"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_x063j")
+text = "V-Sync"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Option" type="VBoxContainer" parent="Video Settings/vSettings"]
+layout_mode = 2
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="fsCB" type="CheckBox" parent="Video Settings/vSettings/Option"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_x063j")
+
+[node name="fpsCB" type="CheckBox" parent="Video Settings/vSettings/Option"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_x063j")
+
+[node name="vsCB" type="CheckBox" parent="Video Settings/vSettings/Option"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_x063j")
+
+[node name="Button" type="Button" parent="Video Settings"]
+offset_left = 264.0
+offset_top = 256.0
+offset_right = 376.0
+offset_bottom = 282.0
+theme = ExtResource("3_x063j")
+text = "Back"
+
+[node name="Audio Settings" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="aSettings" type="HBoxContainer" parent="Audio Settings"]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 136.0
+offset_right = 424.0
+offset_bottom = 216.0
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Text" type="VBoxContainer" parent="Audio Settings/aSettings"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Master Volume" type="RichTextLabel" parent="Audio Settings/aSettings/Text"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_x063j")
+text = "Master"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SFX" type="RichTextLabel" parent="Audio Settings/aSettings/Text"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_x063j")
+text = "Sound FX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="RichTextLabel" parent="Audio Settings/aSettings/Text"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_x063j")
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Option" type="VBoxContainer" parent="Audio Settings/aSettings"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="mstr" type="HSlider" parent="Audio Settings/aSettings/Option"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_x063j")
+value = 100.0
+
+[node name="sfx" type="HSlider" parent="Audio Settings/aSettings/Option"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_x063j")
+value = 100.0
+
+[node name="mus" type="HSlider" parent="Audio Settings/aSettings/Option"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_x063j")
+value = 100.0
+
+[node name="Button" type="Button" parent="Audio Settings"]
+offset_left = 264.0
+offset_top = 256.0
+offset_right = 376.0
+offset_bottom = 282.0
+theme = ExtResource("3_x063j")
+text = "Back"
+
+[connection signal="pressed" from="Main Settings/VideoSettings" to="." method="_on_video_settings_pressed"]
+[connection signal="pressed" from="Main Settings/AudioSettings" to="." method="_on_audio_settings_pressed"]
+[connection signal="pressed" from="Main Settings/Button" to="." method="_on_back_pressed"]
+[connection signal="toggled" from="Video Settings/vSettings/Option/fsCB" to="." method="_on_fs_cb_toggled"]
+[connection signal="pressed" from="Video Settings/vSettings/Option/fpsCB" to="." method="_on_bl_cb_pressed"]
+[connection signal="pressed" from="Video Settings/vSettings/Option/vsCB" to="." method="_on_vs_cb_pressed"]
+[connection signal="pressed" from="Video Settings/Button" to="." method="_on_button___pressed"]
+[connection signal="value_changed" from="Audio Settings/aSettings/Option/mstr" to="." method="_on_mstr_value_changed"]
+[connection signal="value_changed" from="Audio Settings/aSettings/Option/sfx" to="." method="_on_sfx_value_changed"]
+[connection signal="value_changed" from="Audio Settings/aSettings/Option/mus" to="." method="_on_mus_value_changed"]
+[connection signal="pressed" from="Audio Settings/Button" to="." method="_on_button__pressed"]
