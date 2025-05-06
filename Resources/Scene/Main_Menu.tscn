@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq61ls2r1av57"]
+
+[ext_resource type="Theme" uid="uid://dkay5gbrpfsmc" path="res://Resources/Themes/Small Font.tres" id="1_7445q"]
+[ext_resource type="Script" uid="uid://do74wtryfc85n" path="res://Resources/Scripts/main_menu.gd" id="1_mavmb"]
+[ext_resource type="Theme" uid="uid://csw4hor13q07" path="res://Resources/Themes/Big Font.tres" id="2_7445q"]
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_mavmb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+offset_left = -320.0
+offset_top = -184.0
+offset_right = 320.0
+offset_bottom = 184.0
+color = Color(0.0938534, 0.0975025, 0.03889, 1)
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -128.0
+offset_right = 126.0
+offset_bottom = 66.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Singleplayer" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+tooltip_text = "For a quick, fun, one-player game. Roll against procedural intelligence."
+theme = ExtResource("1_7445q")
+text = "Single Player"
+
+[node name="Multiplayer (LAN)" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+tooltip_text = "For a battle with the lads. Connect with local devices and roll!"
+theme = ExtResource("1_7445q")
+disabled = true
+text = "Multiplayer (LAN)"
+
+[node name="Options" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Need to change a setting? Look no further!"
+theme = ExtResource("1_7445q")
+text = "Options
+"
+
+[node name="Quit" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Had enough?"
+theme = ExtResource("1_7445q")
+text = "Quit
+"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = -80.0
+offset_top = -88.0
+offset_right = 96.0
+offset_bottom = -40.0
+theme = ExtResource("2_7445q")
+text = "Snakes, Ladders,
+Chaos & Powers"
+autowrap_mode = 1
+
+[connection signal="pressed" from="HBoxContainer/Singleplayer" to="." method="_on_singleplayer_pressed"]
+[connection signal="pressed" from="HBoxContainer/Quit" to="." method="_on_quit_pressed"]
