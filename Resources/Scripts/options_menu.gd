@@ -4,6 +4,7 @@ func _ready() -> void:
 	$"Main Settings".show()
 	$"Video Settings".hide()
 	$"Video Settings".hide()
+	ButtonAudioManager.connect_buttons(self)
 
 func _on_video_settings_pressed() -> void:
 	$"Main Settings".hide()

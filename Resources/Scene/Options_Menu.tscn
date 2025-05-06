@@ -112,6 +112,7 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_x063j")
+button_pressed = true
 
 [node name="fpsCB" type="CheckBox" parent="Video Settings/vSettings/Option"]
 layout_mode = 2
@@ -124,6 +125,7 @@ size_flags_vertical = 3
 theme = ExtResource("3_x063j")
 
 [node name="Button" type="Button" parent="Video Settings"]
+layout_mode = 0
 offset_left = 264.0
 offset_top = 256.0
 offset_right = 376.0
@@ -199,6 +201,7 @@ theme = ExtResource("3_x063j")
 value = 100.0
 
 [node name="Button" type="Button" parent="Audio Settings"]
+layout_mode = 0
 offset_left = 264.0
 offset_top = 256.0
 offset_right = 376.0

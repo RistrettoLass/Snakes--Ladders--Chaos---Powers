@@ -8,6 +8,10 @@
 [node name="Main Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_left = 320.0
+offset_top = 184.0
+offset_right = 320.0
+offset_bottom = 184.0
 script = ExtResource("1_mavmb")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -15,7 +19,7 @@ layout_mode = 2
 offset_left = -320.0
 offset_top = -184.0
 offset_right = 320.0
-offset_bottom = 184.0
+offset_bottom = 176.0
 color = Color(0.0938534, 0.0975025, 0.03889, 1)
 
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
@@ -58,8 +62,6 @@ tooltip_text = "Had enough?"
 theme = ExtResource("1_7445q")
 text = "Quit
 "
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
