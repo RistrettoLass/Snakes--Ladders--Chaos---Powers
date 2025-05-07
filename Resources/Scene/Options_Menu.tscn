@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://by66lmk4ywsx4"]
+[gd_scene load_steps=5 format=3 uid="uid://by66lmk4ywsx4"]
 
 [ext_resource type="Script" uid="uid://c40jnind7udik" path="res://Resources/Scripts/options_menu.gd" id="1_tdyw4"]
 [ext_resource type="Theme" uid="uid://csw4hor13q07" path="res://Resources/Themes/Big Font.tres" id="2_m2whp"]
+[ext_resource type="PackedScene" uid="uid://bvwosthj7e004" path="res://Resources/Scene/FPS Counter.tscn" id="2_x063j"]
 [ext_resource type="Theme" uid="uid://dkay5gbrpfsmc" path="res://Resources/Themes/Small Font.tres" id="3_x063j"]
 
 [node name="Options Menu" type="Control"]
@@ -20,6 +21,18 @@ offset_right = 640.0
 offset_bottom = 360.0
 color = Color(0.0941176, 0.0980392, 0.0392157, 1)
 metadata/_edit_lock_ = true
+
+[node name="FPS Counter" parent="." instance=ExtResource("2_x063j")]
+z_index = 1000
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 280.0
+offset_top = 104.0
+offset_right = 280.0
+offset_bottom = 104.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -213,7 +226,7 @@ text = "Back"
 [connection signal="pressed" from="Main Settings/AudioSettings" to="." method="_on_audio_settings_pressed"]
 [connection signal="pressed" from="Main Settings/Button" to="." method="_on_back_pressed"]
 [connection signal="toggled" from="Video Settings/vSettings/Option/fsCB" to="." method="_on_fs_cb_toggled"]
-[connection signal="pressed" from="Video Settings/vSettings/Option/fpsCB" to="." method="_on_bl_cb_pressed"]
+[connection signal="pressed" from="Video Settings/vSettings/Option/fpsCB" to="." method="_on_fps_cb_pressed"]
 [connection signal="pressed" from="Video Settings/vSettings/Option/vsCB" to="." method="_on_vs_cb_pressed"]
 [connection signal="pressed" from="Video Settings/Button" to="." method="_on_button___pressed"]
 [connection signal="value_changed" from="Audio Settings/aSettings/Option/mstr" to="." method="_on_mstr_value_changed"]

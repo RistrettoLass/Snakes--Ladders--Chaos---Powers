@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvwosthj7e004"]
+[gd_scene load_steps=4 format=3 uid="uid://bvwosthj7e004"]
 
 [ext_resource type="Script" uid="uid://pl2147dyipsq" path="res://Resources/Scripts/fps_counter.gd" id="1_ojlhx"]
 [ext_resource type="Theme" uid="uid://dkay5gbrpfsmc" path="res://Resources/Themes/Small Font.tres" id="1_peroa"]
 [ext_resource type="Script" uid="uid://bg3vafd0syci3" path="res://Resources/Scripts/Debug Tools/fps_counter.gd" id="2_p2xxe"]
-[ext_resource type="AudioStream" uid="uid://nrtbd55l4h7p" path="res://Resources/Assets/SFX/blipSelect.wav" id="3_p2xxe"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -19,15 +18,9 @@ script = ExtResource("1_ojlhx")
 [node name="FPS Counter" type="RichTextLabel" parent="CanvasLayer"]
 offset_left = 8.0
 offset_top = 8.0
-offset_right = 48.0
+offset_right = 120.0
 offset_bottom = 48.0
 theme = ExtResource("1_peroa")
 bbcode_enabled = true
 text = "FPS"
 script = ExtResource("2_p2xxe")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_p2xxe")
-volume_db = -6.0
-mix_target = 2
-bus = &"Sound Effects"

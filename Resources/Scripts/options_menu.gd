@@ -1,5 +1,7 @@
 extends Control
 
+var FPSDebugMenu := preload("res://Resources/Scene/FPS Counter.tscn")
+
 func _ready() -> void:
 	$"Main Settings".show()
 	$"Video Settings".hide()
@@ -47,3 +49,11 @@ func _on_vs_cb_pressed() -> void:
 	var mode := DisplayServer.window_get_vsync_mode()
 	var is_vsync : bool = mode != DisplayServer.VSYNC_ENABLED
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED if is_vsync else DisplayServer.VSYNC_DISABLED) 
+	
+func _on_fps_cb_pressed() -> void:
+	Settings.debug_show_fps = !Settings.debug_show_fps
+	var fpsNode = FPSDebugMenu.instantiate()
+	fpsNode.name = "FPS Counter"
+	if has_node("FPS Counter"):
+		$"FPS Counter".queue_free()
+	else: add_child(fpsNode)
