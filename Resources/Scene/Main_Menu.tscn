@@ -65,14 +65,15 @@ text = "Quit
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = -80.0
+offset_left = -320.0
 offset_top = -88.0
-offset_right = 96.0
-offset_bottom = -40.0
+offset_right = 320.0
+offset_bottom = -48.0
 theme = ExtResource("2_7445q")
 text = "Snakes, Ladders,
 Chaos & Powers"
 autowrap_mode = 1
+horizontal_alignment = 1
 
 [node name="FPS Counter" parent="." instance=ExtResource("4_0ea47")]
 layout_mode = 0

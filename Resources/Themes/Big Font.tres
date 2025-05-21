@@ -4,3 +4,4 @@
 
 [resource]
 default_font = ExtResource("1_ntuk3")
+RichTextLabel/font_sizes/normal_font_size = 12

@@ -131,6 +131,7 @@ button_pressed = true
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_x063j")
+button_pressed = true
 
 [node name="vsCB" type="CheckBox" parent="Video Settings/vSettings/Option"]
 layout_mode = 2
