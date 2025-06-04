@@ -19,7 +19,7 @@ script = ExtResource("2_depna")
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 640.0
 offset_bottom = 360.0
-color = Color(0.458753, 0.423863, 0.519524, 1)
+color = Color(0.489833, 0.257185, 0.363774, 1)
 
 [node name="Button" type="Button" parent="."]
 offset_left = 272.0
@@ -40,11 +40,12 @@ icon = ExtResource("5_f0qha")
 flat = true
 
 [node name="RollOutput" type="RichTextLabel" parent="."]
-offset_left = 280.0
-offset_top = 192.0
+offset_left = 272.0
+offset_top = 184.0
 offset_right = 368.0
-offset_bottom = 215.0
+offset_bottom = 207.0
 theme = ExtResource("6_1xij8")
+bbcode_enabled = true
 text = "Output:"
 
 [connection signal="pressed" from="Button" to="." method="_on_main_menu_btn_pressed"]

@@ -20,7 +20,7 @@ offset_left = -320.0
 offset_top = -184.0
 offset_right = 320.0
 offset_bottom = 176.0
-color = Color(0.0938534, 0.0975025, 0.03889, 1)
+color = Color(0.0777321, 0.104959, 0.0100427, 1)
 
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
