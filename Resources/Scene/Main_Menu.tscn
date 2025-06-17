@@ -1,9 +1,70 @@
-[gd_scene load_steps=5 format=3 uid="uid://bq61ls2r1av57"]
+[gd_scene load_steps=9 format=3 uid="uid://bq61ls2r1av57"]
 
 [ext_resource type="Theme" uid="uid://dkay5gbrpfsmc" path="res://Resources/Themes/Small Font.tres" id="1_7445q"]
 [ext_resource type="Script" uid="uid://do74wtryfc85n" path="res://Resources/Scripts/main_menu.gd" id="1_mavmb"]
-[ext_resource type="Theme" uid="uid://csw4hor13q07" path="res://Resources/Themes/Big Font.tres" id="2_7445q"]
 [ext_resource type="PackedScene" uid="uid://bvwosthj7e004" path="res://Resources/Scene/FPS Counter.tscn" id="4_0ea47"]
+[ext_resource type="Texture2D" uid="uid://1qel7wpiqhyp" path="res://Resources/Assets/Pixel Assets/TITLE.png" id="4_a8ag0"]
+
+[sub_resource type="Animation" id="Animation_ict8l"]
+resource_name = "Hovering"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 2, 0),
+"points": PackedFloat32Array(-2, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, -2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+
+[sub_resource type="Animation" id="Animation_d8orm"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h211v"]
+_data = {
+&"Hovering": SubResource("Animation_ict8l"),
+&"RESET": SubResource("Animation_d8orm")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0idf"]
+size = Vector2(144, 80)
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -36,6 +97,8 @@ size_flags_vertical = 4
 alignment = 1
 
 [node name="Singleplayer" type="Button" parent="HBoxContainer"]
+texture_filter = 1
+texture_repeat = 1
 layout_mode = 2
 tooltip_text = "For a quick, fun, one-player game. Roll against procedural intelligence."
 theme = ExtResource("1_7445q")
@@ -63,18 +126,6 @@ theme = ExtResource("1_7445q")
 text = "Quit
 "
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = -320.0
-offset_top = -88.0
-offset_right = 320.0
-offset_bottom = -48.0
-theme = ExtResource("2_7445q")
-text = "Snakes, Ladders,
-Chaos & Powers"
-autowrap_mode = 1
-horizontal_alignment = 1
-
 [node name="FPS Counter" parent="." instance=ExtResource("4_0ea47")]
 layout_mode = 0
 anchors_preset = 0
@@ -82,6 +133,25 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+
+[node name="Title" type="Sprite2D" parent="RigidBody2D"]
+texture_filter = 1
+position = Vector2(0, -72)
+texture = ExtResource("4_a8ag0")
+offset = Vector2(0, -2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RigidBody2D"]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_h211v")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0, -72)
+shape = SubResource("RectangleShape2D_o0idf")
 
 [connection signal="pressed" from="HBoxContainer/Singleplayer" to="." method="_on_singleplayer_pressed"]
 [connection signal="pressed" from="HBoxContainer/Options" to="." method="_on_options_pressed"]
